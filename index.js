@@ -43,7 +43,6 @@ app.get('/', (req, res) => {
             urlResult: result
         })
     })
-
 })
 
 app.post('/create', (req, res) => {
@@ -54,14 +53,12 @@ app.post('/create', (req, res) => {
         longUrl: req.body.longurl,
         shortUrl: generateUrl()
     })
-
+    //Store it in DB
     urlShort.save((err, data) => {
         if (err) throw err;
         // console.log(data)
         res.redirect('/')
     })
-
-    //Store it in DB
 })
 
 app.get('/:urlId', (req, res) => {
